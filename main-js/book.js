@@ -1,18 +1,25 @@
 const searchBtn = document.getElementById('button-Search');
-
+// const errorDiv = document.getElementById('error')
 
 searchBtn.addEventListener('click', () => {
     // console.log('Search Button Is Clicked');
     const searchField = document.getElementById('search-field');
     searchText = searchField.value;
-    document.getElementById('search-field').value ='';
-    // console.log(searchText);
-    const url = `https://openlibrary.org/search.json?q='${searchText}'`;
-    
+    document.getElementById('search-field').value = '';
+    const errorMsg = document.getElementById('error');
+    if (searchText === '') {
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => searchResult(data.docs));
+        errorMsg.innerHTML = `<p class=" w-50 mx-auto mb-3 text-danger fw-bold text-right error" id="error">No Result Found</p>`;
+    }
+    else {
+        errorMsg.innerHTML = `<p class=" w-50 mx-auto mb-3 text-danger fw-bold text-center error" id="error"></p>`;
+        const url = `https://openlibrary.org/search.json?q='${searchText}'`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => searchResult(data.docs));
+    }
+    // console.log(searchText);
+
 })
 
 
