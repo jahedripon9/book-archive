@@ -34,11 +34,11 @@ const searchResult = docs => {
                 <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${book.title}</h5>
-                    <h5> ${book.author_name}</h5>
+                    <h5>Author Name: ${book.author_name}</h5>
                     <p class="card-text">${book.text}</p>
                 </div>
                 <div class="card-footer">
-                    <small class="">${book.first_publish_year}</small>
+                    <small class="">Publish Year:${book.first_publish_year}</small>
                 </div>
             </div>
         `;
